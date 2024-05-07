@@ -1,15 +1,16 @@
 package ru.kashtanov.model;
 
-import ru.kashtanov.model.BankCard;
-
-import java.util.List;
+import ru.kashtanov.bonusProgram.BonusProgram;
 
 public class DebitCard extends BankCard {
 
+    public DebitCard(BonusProgram bonusProgram) {
+        super(bonusProgram);
+    }
 
     @Override
-    public void topUpAccount(Double amount) {
-        System.out.println("Пополние на сумму: " + amount);
+    public void topUpBalance(Double amount) {
+        System.out.println("Пополнение на сумму: " + amount);
         Double total = getBalance() + amount;
         setBalance(total);
     }
@@ -21,7 +22,7 @@ public class DebitCard extends BankCard {
             System.out.println("Списание средств на сумму успешно выполнено: " + amountToPay);
             return true;
         } else {
-            System.out.println("Недостаточно средства для списания суммы: " + amountToPay);
+            System.out.println("Недостаточно средств для списания суммы: " + amountToPay);
             return false;
         }
     }
@@ -29,12 +30,10 @@ public class DebitCard extends BankCard {
     @Override
     public void getBalanceInfo() {
         System.out.println("Собственные средства: " + getBalance());
-
     }
+
     @Override
     public void getFundsInfo() {
-        System.out.println("Собственные средства: " + getBalance());
+        getBalanceInfo();
     }
-
-
 }

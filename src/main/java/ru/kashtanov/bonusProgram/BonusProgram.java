@@ -1,31 +1,15 @@
 package ru.kashtanov.bonusProgram;
 
 public class BonusProgram implements BonusProgramKinds {
+
     private Double percent;
-    private Double bonusQty = (double) 0;
+    private Double bonusQty = 0d;
 
     public BonusProgram() {
     }
 
     public BonusProgram(Double percent) {
         this.percent = percent;
-
-    }
-
-    public Double getPercent() {
-        return percent;
-    }
-
-    public void setPercent(Double percent) {
-        this.percent = percent;
-    }
-
-    public Double getBonusQty() {
-        return bonusQty;
-    }
-
-    public void setBonusQty(Double bonusQty) {
-        this.bonusQty = bonusQty;
     }
 
     @Override
@@ -43,8 +27,23 @@ public class BonusProgram implements BonusProgramKinds {
     }
 
     @Override
-    public Double collectMoneyWhenReplenishing(Double replenishedMoney) {
+    public void collectMoneyWhenReplenishing(Double replenishedMoney) {
         bonusQty += replenishedMoney * percent;
+    }
+
+    public Double getPercent() {
+        return percent;
+    }
+
+    public void setPercent(Double percent) {
+        this.percent = percent;
+    }
+
+    public Double getBonusQty() {
         return bonusQty;
+    }
+
+    public void setBonusQty(Double bonusQty) {
+        this.bonusQty = bonusQty;
     }
 }
