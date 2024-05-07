@@ -9,7 +9,7 @@ public abstract class BankCard {
     public abstract void topUpAccount(Double amount);
     public abstract boolean payOff(Double amountToPay);
     public abstract void getBalanceInfo();
-    public abstract List<? extends BankCard> getFundsInfo();
+    public abstract void  getFundsInfo();
 
     public Double getBalance() {
         return balance;
